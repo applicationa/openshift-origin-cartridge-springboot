@@ -1,0 +1,80 @@
+#!/bin/bash
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+export OPENSHIFT_SPRINGBOOT_VERSION=$(springboot_version)
+
+function start()
+{
+	if ! is_running; then
+		set +e
+		echo "Starting SpringBoot $OPENSHIFT_SPRINGBOOT_VERSION cartridge"
+		set -e
+	else
+		echo "SpringBoot is already running" 1>&2
+	fi
+}
+
+function stop()
+{	
+	if is_running; then
+		set +e
+		echo "Stopping SpringBoot $OPENSHIFT_SPRINGBOOT_VERSION cartridge"
+		set -e
+	else
+		echo "SpringBoot already stopped"
+	fi
+}
+
+function restart()
+{
+	echo "Restarting SpringBoot"
+	stop
+	start
+}
+
+function status()
+{	
+	if is_running; then
+		client_result "SpringBoot is running"
+	else
+		client_result "SpringBoot is stopped"
+	fi
+	
+	exit 0
+}
+
+function tidy()
+{
+	rm -f ${OPENSHIFT_SPRINGBOOT_LOG_DIR}/*
+}
+
+function is_running()
+{
+	if [ -f $OPENSHIFT_SPRINGBOOT_PID ]; then
+		SPRINGBOOT_pid=`cat $OPENSHIFT_SPRINGBOOT_PID 2> /dev/null`
+		myid=`id -u`
+
+		if `ps --pid $SPRINGBOOT_pid > /dev/null 2>&1`
+		then 
+			return 0
+		fi
+	fi
+
+	return 1
+}
+
+case "$1" in
+  start)     
+  	start ;;
+  stop)      
+  	stop ;;
+  restart)   
+  	restart ;;
+  status)    
+  	status ;;
+  tidy)      
+  	tidy ;;
+  *)         
+  	exit 0
+esac

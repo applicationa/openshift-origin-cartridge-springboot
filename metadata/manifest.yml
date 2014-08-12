@@ -1,0 +1,45 @@
+---
+Name: springboot
+Cartridge-Short-Name: SPRINGBOOT
+Architecture: noarch
+Display-Name: Spring Boot 1.1.5
+Description: Spring Boot takes an opinionated view of building production-ready Spring applications. Spring Boot favors convention over configuration and is designed to get you up and running as quickly as possible.
+Version: '1.1.5'
+Cartridge-Version: 0.0.1
+Compatible-Versions: []
+Cartridge-Vendor: bholmes
+License: GPL
+Vendor: springboot
+Categories:
+- service
+- springboot
+- springboot115
+- web_framework
+Website: http://projects.spring.io/spring-boot/
+Help-Topics:
+  Quick Start: http://projects.spring.io/spring-boot/#quick-start
+Provides:
+  - springboot115
+  - springboot
+Publishes:
+  get-internal-uri:
+    Type: NET_TCP:http
+Subscribes:
+  set-env:
+    Type: ENV:*
+    Required: false
+Scaling:
+  Min: 1
+  Max: -1
+Endpoints:
+- Private-IP-Name: IP
+  Private-Port-Name: HTTP_PORT
+  Private-Port: 8080
+  Public-Port-Name: HTTP_PROXY_PORT
+  Protocols:
+  - http
+  Options:
+    primary: true
+  Mappings:
+  - Frontend: ''
+    Backend: ''
