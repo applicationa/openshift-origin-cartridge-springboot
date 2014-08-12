@@ -5,7 +5,6 @@ Architecture: noarch
 Display-Name: Spring Boot 1.1.5
 Description: Spring Boot takes an opinionated view of building production-ready Spring applications. Spring Boot favors convention over configuration and is designed to get you up and running as quickly as possible.
 Version: '1.1.5'
-Source-Url: git@github.com:benemon/openshift-origin-cartridge-springboot
 Cartridge-Version: 0.0.1
 Compatible-Versions: []
 Cartridge-Vendor: bholmes
