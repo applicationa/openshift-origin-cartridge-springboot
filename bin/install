@@ -20,6 +20,7 @@ sed -i "s/{APP_NAME}/${OPENSHIFT_APP_NAME}/g" ${OPENSHIFT_SPRINGBOOT_DIR}/templa
 sed -i "s/{APP_VERSION}/${version}/g" ${OPENSHIFT_SPRINGBOOT_DIR}/template/pom.xml
 
 update-configuration java7
+reinstall_path
 
 client_result ""
 client_result "Sprint Boot ${version} added."
