@@ -9,7 +9,10 @@ esac
 
 echo "$version" > "$OPENSHIFT_SPRINGBOOT_DIR/env/OPENSHIFT_SPRINGBOOT_VERSION"
 
-# wget http://repo.spring.io/snapshot/org/springframework/boot/spring-boot-cli/${springboot_version}.BUILD-SNAPSHOT/spring-boot-cli-${springboot_version}.BUILD-SNAPSHOT-bin.zip
+pushd $OPENSHIFT_SPRINGBOOT_DIR/lib/ 1>/dev/null
+wget http://repo.spring.io/snapshot/org/springframework/boot/spring-boot-cli/${version}.BUILD-SNAPSHOT/spring-boot-cli-${version}.BUILD-SNAPSHOT-bin.zip
+unzip spring-boot-cli-${version}.BUILD-SNAPSHOT-bin.zip -d spring-boot-cli
+popd 1>/dev/null
 
 sed -i "s/{APP_NAME}/${OPENSHIFT_APP_NAME}/g" ${OPENSHIFT_SPRINGBOOT_DIR}/template/pom.xml
 sed -i "s/{APP_VERSION}/${version}/g" ${OPENSHIFT_SPRINGBOOT_DIR}/template/pom.xml
