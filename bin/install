@@ -22,7 +22,7 @@ sed -i "s/{APP_VERSION}/${version}/g" ${OPENSHIFT_SPRINGBOOT_DIR}/template/pom.x
 update-configuration java7
 
 client_result ""
-client_result "SprintBoot ${version} added."
+client_result "Sprint Boot ${version} added."
 client_result ""
 
 
