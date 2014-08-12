@@ -7,17 +7,17 @@ case "$1" in
 		version="$2"
 esac
 
-export springboot_version=${OPENSHIFT_SPRINGBOOT_IDENT} | cut -d':' -f3
+echo "$version" > "$OPENSHIFT_SPRINGBOOT_DIR/env/OPENSHIFT_SPRINGBOOT_VERSION"
 
 # wget http://repo.spring.io/snapshot/org/springframework/boot/spring-boot-cli/${springboot_version}.BUILD-SNAPSHOT/spring-boot-cli-${springboot_version}.BUILD-SNAPSHOT-bin.zip
 
 sed -i "s/{APP_NAME}/${OPENSHIFT_APP_NAME}/g" ${OPENSHIFT_SPRINGBOOT_DIR}/template/pom.xml
-sed -i "s/{APP_VERSION}/${springboot_version}/g" ${OPENSHIFT_SPRINGBOOT_DIR}/template/pom.xml
+sed -i "s/{APP_VERSION}/${version}/g" ${OPENSHIFT_SPRINGBOOT_DIR}/template/pom.xml
 
 update-configuration java7
 
 client_result ""
-client_result "SprintBoot ${springboot_version} added."
+client_result "SprintBoot ${version} added."
 client_result ""
 
 
