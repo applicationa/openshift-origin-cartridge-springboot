@@ -24,7 +24,7 @@ function stop()
       echo "Stopping $cartridge_type cartridge"
       pid=$(cat $SPRINGBOOT_PID_FILE);
       echo "Sending SIGTERM to Spring Boot:$pid ..." 1>&2
-      kill $pid
+      pkill -TERM -P $pid
     else 
       echo "Failed to locate Spring Boot PID File" 1>&2
     fi
