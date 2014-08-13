@@ -11,6 +11,7 @@ Cartridge-Vendor: bholmes
 License: GPL
 Vendor: springboot
 Categories:
+- java
 - service
 - springboot
 - springboot115
