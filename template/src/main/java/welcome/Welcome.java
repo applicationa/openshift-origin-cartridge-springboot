@@ -16,8 +16,6 @@ public class Welcome {
     String home() {
         return "Welcome to Spring Boot on OpenShift";
     }
-    
-    @RequestMapping("/rest")
   
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Welcome.class, args);
