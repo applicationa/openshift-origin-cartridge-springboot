@@ -11,3 +11,5 @@ locked_files:
 - conf/
 processed_templates:
 - '**/*.erb'
+build_dependency_dirs:
+- ~/.m2
