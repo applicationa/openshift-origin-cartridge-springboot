@@ -1,2 +1,7 @@
+# EMBEDDED SERVER CONFIGURATION
 server.port=<%= ENV['OPENSHIFT_SPRINGBOOT_HTTP_PORT'] %>
 server.address=<%= ENV['OPENSHIFT_SPRINGBOOT_IP'] %>
+
+# LOGGING
+logging.path=<%= ENV['OPENSHIFT_SPRINGBOOT_LOG_DIR'] %>
+logging.file=<%= ENV['OPENSHIFT_APP_NAME'] %>.log
