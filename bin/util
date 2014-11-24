@@ -22,9 +22,9 @@ function update-configuration() {
  function export_java_home() { #JAVA_HOME=$OPENSHIFT_WILDFLY_JDK8
   if marker_present "java7"; then
     export JAVA_HOME=$OPENSHIFT_JBOSSEWS_JDK7
-  #elif marker_present java8
-  #then
-  #  export JAVA_HOME=$OPENSHIFT_WILDFLY_JDK8
+  elif marker_present java8
+  then
+    export JAVA_HOME=$OPENSHIFT_DATA_DIR/jdk1.8.0_20
   else
     export JAVA_HOME=$OPENSHIFT_JBOSSEWS_JDK6
   fi
