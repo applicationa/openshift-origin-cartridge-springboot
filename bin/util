@@ -6,15 +6,19 @@ function update-configuration() {
   if marker_present java7 || [ ${1:-undefined} == java7 ]
   then
     export JAVA_HOME=$OPENSHIFT_SPRINGBOOT_JDK7
+  elif marker_present java8 || [ ${1:-undefined} == java8 ]
+    export JAVA_HOME=$OPENSHIFT_SPRINGBOOT_JDK8
   else
     export JAVA_HOME=$OPENSHIFT_SPRINGBOOT_JDK6
   fi
 
  }
  
- function export_java_home() {
+ function export_java_home() { #JAVA_HOME=$OPENSHIFT_WILDFLY_JDK8
   if marker_present "java7"; then
     export JAVA_HOME=$OPENSHIFT_JBOSSEWS_JDK7
+  elif marker_present java8
+    export JAVA_HOME=$OPENSHIFT_WILDFLY_JDK8
   else
     export JAVA_HOME=$OPENSHIFT_JBOSSEWS_JDK6
   fi
