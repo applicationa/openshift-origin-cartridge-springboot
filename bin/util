@@ -8,6 +8,7 @@ function update-configuration() {
     export JAVA_HOME=$OPENSHIFT_SPRINGBOOT_JDK7
   elif marker_present java8 || [ ${1:-undefined} == java8 ]
   then
+    install-jdk-8
     #setup-jdk-8
     #export JAVA_HOME="$OPENSHIFT_DATA_DIR/jdk/jdk1.8.0_05"
     export JAVA_HOME=$OPENSHIFT_DATA_DIR/jdk1.8.0_20
@@ -33,6 +34,16 @@ function update-configuration() {
 function reinstall_path {
  echo $JAVA_HOME > $OPENSHIFT_SPRINGBOOT_DIR/env/JAVA_HOME
   echo "$JAVA_HOME/bin:$M2_HOME/bin:$SPRING_HOME/bin:$SPRING_HOME/shell_completion/bash" > $OPENSHIFT_SPRINGBOOT_DIR/env/OPENSHIFT_SPRINGBOOT_PATH_ELEMENT
+}
+
+function install-jdk-8() {
+  if [ ! -d $OPENSHIFT_DATA_DIR/jdk1.8.0_20 ]
+        then
+                cd $OPENSHIFT_DATA_DIR
+                wget http://www.java.net/download/jdk8u20/archive/b17/binaries/jdk-8u20-ea-bin-b17-linux-x64-04_jun_2014.tar.gz
+                tar xvf *.tar.gz
+                rm -f *.tar.gz
+  fi
 }
 
 function setup-jdk-8() {
