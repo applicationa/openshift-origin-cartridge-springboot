@@ -8,8 +8,9 @@ function update-configuration() {
     export JAVA_HOME=$OPENSHIFT_SPRINGBOOT_JDK7
   elif marker_present java8 || [ ${1:-undefined} == java8 ]
   then
-    setup-jdk-8
-    export JAVA_HOME="$OPENSHIFT_DATA_DIR/jdk/jdk1.8.0_05"
+    #setup-jdk-8
+    #export JAVA_HOME="$OPENSHIFT_DATA_DIR/jdk/jdk1.8.0_05"
+    export JAVA_HOME=$OPENSHIFT_DATA_DIR/jdk1.8.0_20
     #export JAVA_HOME=$OPENSHIFT_SPRINGBOOT_JDK8
   else
     export JAVA_HOME=$OPENSHIFT_SPRINGBOOT_JDK6
