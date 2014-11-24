@@ -14,7 +14,7 @@ public class Welcome {
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "Welcome to Spring Boot on OpenShift 1.2.0";
+        return "Welcome to Spring Boot on OpenShift";
     }
   
     public static void main(String[] args) throws Exception {

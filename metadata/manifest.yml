@@ -2,25 +2,25 @@
 Name: springboot
 Cartridge-Short-Name: SPRINGBOOT
 Architecture: noarch
-Display-Name: Spring Boot 1.2.0
+Display-Name: Spring Boot 1.1.5
 Description: Spring Boot takes an opinionated view of building production-ready Spring applications. Spring Boot favors convention over configuration and is designed to get you up and running as quickly as possible.
-Version: '1.2.0'
+Version: '1.1.5'
 Cartridge-Version: 0.0.1
 Compatible-Versions: []
-Cartridge-Vendor: applicationa
+Cartridge-Vendor: bholmes
 License: GPL
 Vendor: springboot
 Categories:
 - java
 - service
 - springboot
-- springboot120
+- springboot115
 - web_framework
 Website: http://projects.spring.io/spring-boot/
 Help-Topics:
   Quick Start: http://projects.spring.io/spring-boot/#quick-start
 Provides:
-  - springboot120
+  - springboot115
   - springboot
 Publishes:
   get-internal-uri:
